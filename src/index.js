@@ -35,11 +35,11 @@ app.get("/browser/:name", async (req, res) => {
       await page.waitForTimeout(parseInt(req.query.timeout, 10))
     }
     
-    // const data = await page.screenshot({
-    //   type: "png"
-    // })
+    const data = await page.screenshot({
+       type: "png"
+    })
     
-    const data = await page.locator('.header').screenshot({ path: 'screenshot.png' });
+    // const data = await page.locator('.header').screenshot({ path: 'screenshot.png' });
     
     await browser.close()
     res.contentType("image/png")
